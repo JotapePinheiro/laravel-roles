@@ -1,0 +1,21 @@
+{
+  "name": "JotapePinheiro/laravel-roles",
+  "description": "Pacote para manipular papéis e permissões no Laravel 5.4+",
+  "keywords": ["roles","permissions","acl","levels"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "João Paulo Pinheiro",
+      "email": "joaopinheiro.ti@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.4",
+    "laravel/framework": "5.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "JotapePinheiro\\LaravelRoles\\": "src/"
+    }
+  }
+}
