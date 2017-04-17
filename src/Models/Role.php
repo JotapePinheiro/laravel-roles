@@ -1,11 +1,11 @@
 <?php
 
-namespace JotapePinheiro\LaravelRoles\Models;
+namespace jotapepinheiro\LaravelRoles\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use JotapePinheiro\LaravelRoles\Contracts\RoleHasRelations as RoleHasRelationsContract;
-use JotapePinheiro\LaravelRoles\Traits\RoleHasRelations;
-use JotapePinheiro\LaravelRoles\Traits\Slugable;
+use jotapepinheiro\LaravelRoles\Contracts\RoleHasRelations as RoleHasRelationsContract;
+use jotapepinheiro\LaravelRoles\Traits\RoleHasRelations;
+use jotapepinheiro\LaravelRoles\Traits\Slugable;
 
 class Role extends Model implements RoleHasRelationsContract
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace JotapePinheiro\LaravelRoles\Contracts;
+namespace jotapepinheiro\LaravelRoles\Contracts;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use JotapePinheiro\LaravelRoles\Models\Permission;
-use JotapePinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Permission;
+use jotapepinheiro\LaravelRoles\Models\Role;
 
 interface HasRoleAndPermission
 {

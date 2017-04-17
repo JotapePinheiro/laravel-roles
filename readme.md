@@ -35,7 +35,7 @@ This package is very easy to set up. There are only couple of steps.
 
 Pull this package in through Composer
 ```
-composer require JotapePinheiro/laravel-roles
+composer require jotapepinheiro/laravel-roles
 ```
 
 ### Service Provider
@@ -50,7 +50,7 @@ Add the package to your application service providers in `config/app.php` file.
     /**
      * Third Party Service Providers...
      */
-    JotapePinheiro\LaravelRoles\RolesServiceProvider::class,
+    jotapepinheiro\LaravelRoles\RolesServiceProvider::class,
 
 ],
 ```
@@ -59,15 +59,15 @@ Add the package to your application service providers in `config/app.php` file.
 
 Publish the package config file and migrations to your application. Run these commands inside your terminal.
 
-    php artisan vendor:publish --provider="JotapePinheiro\LaravelRoles\RolesServiceProvider" --tag=config
-    php artisan vendor:publish --provider="JotapePinheiro\LaravelRoles\RolesServiceProvider" --tag=migrations
-    php artisan vendor:publish --provider="JotapePinheiro\LaravelRoles\RolesServiceProvider" --tag=seeds
+    php artisan vendor:publish --provider="jotapepinheiro\LaravelRoles\RolesServiceProvider" --tag=config
+    php artisan vendor:publish --provider="jotapepinheiro\LaravelRoles\RolesServiceProvider" --tag=migrations
+    php artisan vendor:publish --provider="jotapepinheiro\LaravelRoles\RolesServiceProvider" --tag=seeds
 
 ### HasRoleAndPermission Trait And Contract
 
 1. Include `HasRoleAndPermission` trait and also implement `HasRoleAndPermission` contract inside your `User` model. See example below.
 
-2. Include `use JotapePinheiro\LararvelRoles\Traits\HasRoleAndPermission;` in the top of your `User` model below the namespace and implement the `HasRoleAndPermission` trait. See example below.
+2. Include `use jotapepinheiro\LararvelRoles\Traits\HasRoleAndPermission;` in the top of your `User` model below the namespace and implement the `HasRoleAndPermission` trait. See example below.
 
 Example `User` model Trait And Contract:
 
@@ -79,7 +79,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use JotapePinheiro\LaravelRoles\Traits\HasRoleAndPermission;
+use jotapepinheiro\LaravelRoles\Traits\HasRoleAndPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
 ##### And that's it!
 
 ## Migrate from bican roles
-If you migrate from bican/roles to JotapePinheiro/LaravelRoles you will need to update a few things.
+If you migrate from bican/roles to jotapepinheiro/LaravelRoles you will need to update a few things.
 - Change all calls to `can`, `canOne` and `canAll` to `hasPermission`, `hasOnePermission`, `hasAllPermissions`.
 - Change all calls to `is`, `isOne` and `isAll` to `hasRole`, `hasOneRole`, `hasAllRoles`.
 
@@ -147,7 +147,7 @@ If you migrate from bican/roles to JotapePinheiro/LaravelRoles you will need to 
 ### Creating Roles
 
 ```php
-use JotapePinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Role;
 
 $adminRole = Role::create([
     'name' => 'Admin',
@@ -194,8 +194,8 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use JotapePinheiro\LaravelRoles\Models\Role;
-use JotapePinheiro\LaravelRoles\Models\Permission;
+use jotapepinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Permission;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 ```
@@ -280,7 +280,7 @@ if ($user->level() > 4) {
 It's very simple thanks to `Permission` model.
 
 ```php
-use JotapePinheiro\LaravelRoles\Models\Permission;
+use jotapepinheiro\LaravelRoles\Models\Permission;
 
 $createUsersPermission = Permission::create([
     'name' => 'Create users',
@@ -300,7 +300,7 @@ You can attach permissions to a role or directly to a specific user (and of cour
 
 ```php
 use App\User;
-use JotapePinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Role;
 
 $role = Role::find($roleId);
 $role->attachPermission($createUsersPermission); // permission attached to a role
@@ -349,7 +349,7 @@ Let's say you have an article and you want to edit it. This article belongs to a
 
 ```php
 use App\Article;
-use JotapePinheiro\LaravelRoles\Models\Permission;
+use jotapepinheiro\LaravelRoles\Models\Permission;
 
 $editArticlesPermission = Permission::create([
     'name' => 'Edit articles',
@@ -416,9 +416,9 @@ protected $routeMiddleware = [
     'auth' => \App\Http\Middleware\Authenticate::class,
     'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
     'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-    'role' => \JotapePinheiro\LaravelRoles\Middleware\VerifyRole::class,
-    'permission' => \JotapePinheiro\LaravelRoles\Middleware\VerifyPermission::class,
-    'level' => \JotapePinheiro\LaravelRoles\Middleware\VerifyLevel::class,
+    'role' => \jotapepinheiro\LaravelRoles\Middleware\VerifyRole::class,
+    'permission' => \jotapepinheiro\LaravelRoles\Middleware\VerifyPermission::class,
+    'level' => \jotapepinheiro\LaravelRoles\Middleware\VerifyLevel::class,
 ];
 ```
 
@@ -444,7 +444,7 @@ $router->get('/example', [
 ]);
 ```
 
-It throws `\JotapePinheiro\LaravelRoles\Exceptions\RoleDeniedException`, `\JotapePinheiro\LaravelRoles\Exceptions\PermissionDeniedException` or `\JotapePinheiro\LaravelRoles\Exceptions\LevelDeniedException` exceptions if it goes wrong.
+It throws `\jotapepinheiro\LaravelRoles\Exceptions\RoleDeniedException`, `\jotapepinheiro\LaravelRoles\Exceptions\PermissionDeniedException` or `\jotapepinheiro\LaravelRoles\Exceptions\LevelDeniedException` exceptions if it goes wrong.
 
 You can catch these exceptions inside `app/Exceptions/Handler.php` file and do whatever you want.
 
@@ -458,7 +458,7 @@ You can catch these exceptions inside `app/Exceptions/Handler.php` file and do w
  */
 public function render($request, Exception $e)
 {
-    if ($e instanceof \JotapePinheiro\LaravelRoles\Exceptions\RoleDeniedException) {
+    if ($e instanceof \jotapepinheiro\LaravelRoles\Exceptions\RoleDeniedException) {
         // you can for example flash message, redirect...
         return redirect()->back();
     }
@@ -473,7 +473,7 @@ You can change connection for models, slug separator, models path and there is a
 
 ## More Information
 
-For more information, please have a look at [HasRoleAndPermission](https://github.com/JotapePinheiro/laravel-roles/blob/master/src/Contracts/HasRoleAndPermission.php) contract.
+For more information, please have a look at [HasRoleAndPermission](https://github.com/jotapepinheiro/laravel-roles/blob/master/src/Contracts/HasRoleAndPermission.php) contract.
 
 ## License
 

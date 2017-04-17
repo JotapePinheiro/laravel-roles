@@ -1,8 +1,8 @@
 <?php
 
 use App\User;
-use JotapePinheiro\LaravelRoles\Models\Role;
-use JotapePinheiro\LaravelRoles\Models\Permission;
+use jotapepinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Permission;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 

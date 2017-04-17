@@ -1,6 +1,6 @@
 <?php
 
-namespace JotapePinheiro\LaravelRoles\Contracts;
+namespace jotapepinheiro\LaravelRoles\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 

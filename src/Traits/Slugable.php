@@ -1,6 +1,6 @@
 <?php
 
-namespace JotapePinheiro\LaravelRoles\Traits;
+namespace jotapepinheiro\LaravelRoles\Traits;
 
 use Illuminate\Support\Str;
 

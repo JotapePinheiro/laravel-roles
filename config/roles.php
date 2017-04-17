@@ -39,14 +39,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | If you want, you can replace default models from this package by models
-    | you created. Have a look at `JotapePinheiro\LaravelRoles\Models\Role` model and
-    | `JotapePinheiro\LaravelRoles\Models\Permission` model.
+    | you created. Have a look at `jotapepinheiro\LaravelRoles\Models\Role` model and
+    | `jotapepinheiro\LaravelRoles\Models\Permission` model.
     |
     */
 
     'models' => [
-        'role' => JotapePinheiro\LaravelRoles\Models\Role::class,
-        'permission' => JotapePinheiro\LaravelRoles\Models\Permission::class,
+        'role' => jotapepinheiro\LaravelRoles\Models\Role::class,
+        'permission' => jotapepinheiro\LaravelRoles\Models\Permission::class,
     ],
 
     /*

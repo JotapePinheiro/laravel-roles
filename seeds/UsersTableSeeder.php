@@ -1,7 +1,7 @@
 <?php
 
 use App\User;
-use JotapePinheiro\LaravelRoles\Models\Role;
+use jotapepinheiro\LaravelRoles\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
